@@ -18,5 +18,5 @@ from .views import home_view, student
 
 urlpatterns = [
     path('', home_view, name="homepage"),
-    path('student/<int:pk>/', student, name="student")
+    path('student/<int:pk>', student, name="student")
 ]

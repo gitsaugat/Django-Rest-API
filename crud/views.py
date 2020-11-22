@@ -37,6 +37,7 @@ def student(request, pk):
         data = JSONParser().parse(request)
         serializer = StudentSerializer(std, data=data)
         if serializer.is_valid():
+            serializer.save()
             return JsonResponse(serializer.data)
         return JsonResponse(serializer.errors, status=400)
 
