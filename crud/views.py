@@ -33,7 +33,7 @@ def student(request, pk):
         serializer = StudentSerializer(std)
         return JsonResponse(serializer.data)
 
-    elif request.method == "POST":
+    elif request.method == "PUT":
         data = JSONParser().parse(request)
         serializer = StudentSerializer(std, data=data)
         if serializer.is_valid():
@@ -44,4 +44,4 @@ def student(request, pk):
         std.delete()
         return HttpResponse(status=204)
 
-    return None;
+    return HttpResponse("<h1>None</h1>")
